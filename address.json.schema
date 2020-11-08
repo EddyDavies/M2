@@ -1,0 +1,82 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://json.eddydavies.com",
+    "title": "Address",
+    "description": "A schema for a persons name, address, phone number and email",
+    "definitions": {
+        "address":{ "type": "object",
+        "properties": {
+            "street_name": {    "type": "string"},
+            "oneOf" : {
+                "name": {
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/expression" },
+                    "minItems": 2},
+                "number": {
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/expression" },
+                    "minItems": 2}
+                },
+            "city" : {
+                "description": "The city or town for this address",
+                "type" : "string"
+                },
+            "county" :{
+                "description": "The county for the address",
+                "type" : "string"
+            },
+            "post_code" :{
+                "description": "The postcode for this address",
+                "type" : "string"
+            }
+            }, "required":["street_name", "city", "county", "post_code"]
+        }
+    },
+    "type": "object",
+    "properties" : {
+        "person_id" : {
+            "description": "The unique identifier for an individual",
+            "type" : "integer"
+        },
+
+        "first_name" : {
+            "description": "The individuals first name",
+            "type" : "string"
+        },
+        "middle_names" : {
+            "description" : "Any middle names an individual has.",
+            "type" : "string"
+        },
+        "last_name" : {
+            "description": "The individuals last name",
+            "type" : "string"
+        },
+
+        "address" : {
+            "description": "The individuals last name",
+            "type" : "array",
+            "items": { "$ref": "#/definitions/address" },
+            "uniqueItems": true
+        },
+
+        "phone" : {
+            "description": "An array of the individual's phone number/s",
+                "type" : "array",
+                "items": {
+                    "type" : "string"
+                },
+                "uniqueItems": true
+            },
+
+        "email" : {
+            "description": "An array of the individual's email address/es",
+                "type" : "array",
+                "items": {
+                    "type" : "string",
+                    "format" : "email"
+                },
+                "uniqueItems": true
+            }
+        },
+    "required" : ["person_id", "first_name"]
+}
