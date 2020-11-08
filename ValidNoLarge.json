@@ -1,9 +1,9 @@
+[
 {
     "person_id" : 7727802,
     "first_name" : "Aleshia",
     "address" : [{
         "house_number": 1,
-        "house_name": "Moor House",
         "house_number_suffix": "B",
 
         "street_name" : "Argyle",
@@ -25,5 +25,33 @@
         "atomkiewicz@hotmail.com",
         "kiewiczForLife@gmail.com"
     ]
+},
+{
+    "person_id" : 77274842,
+    "first_name" : "Fred",
+    "last_name" : "Flinstone",
+    "address" : [{
+        "house_name": "Moor House",
+
+        "street_name" : "Round",
+        "street_type": "Street",
+
+        "city" : "Hyde Werneth Ward",
+        "governing_district" : "Greater Manchester",
+        "post_code" : "SK14 5AR",
+
+        "country": "United Kingdom",
+        "address_type": "House"
+    }],
+    "phone" : [
+        "+4 3456 45324",
+        "01944-369967"
+    ],
+    "email" : [
+        "Fred@hotmail.com",
+        "FDog@flinstone.com",
+        "FSharp@icloud.com"
+    ]
 }
 
+]
