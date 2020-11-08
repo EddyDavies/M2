@@ -1,15 +1,22 @@
 {
     "person_id" : 7727802,
     "first_name" : "Aleshia",
-    "address" : [
-        {
-        "street_name" : "Argyle St",
-        "number" : 1,
+    "address" : [{
+        "house_number": 1,
+        "house_name": "Moor House",
+        "house_number_suffix": "B",
+
+        "street_name" : "Argyle",
+        "street_type": "Street",
+        "street_direction": "",
+
         "city" : "Hyde Werneth Ward",
-        "county" : "Greater Manchester",
-        "post_code" : "SK14 5AR"
-        }
-    ],
+        "governing_district" : "Greater Manchester",
+        "post_code" : "SK14 5AR",
+
+        "country": "United Kingdom",
+        "address_type": "House"
+    }],
     "phone" : [
         "01835-703597",
         "01944-369967"
@@ -19,3 +26,4 @@
         "kiewiczForLife@gmail.com"
     ]
 }
+
