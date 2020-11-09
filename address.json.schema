@@ -1,7 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "http://json.eddydavies.com",
-  "title": "Address",
+  "title": "Address Book",
   "description": "A schema for a person's name, address, phone number and email",
   "definitions": {
     "address": {
@@ -9,7 +8,14 @@
         {
           "properties": {
             "house_number": {
-              "type": "string"
+              "type": "number"
+            }
+          }
+        },
+        {
+          "properties": {
+            "house_number": {
+              "type": "number"
             },
             "house_number_suffix": {
               "description": "Any letter that may be found following a house number",
@@ -20,21 +26,42 @@
         {
           "properties": {
             "house_name": {
-              "type": "number"
+              "type": "string"
             }
           }
         }
       ],
       "type": "object",
       "properties": {
+        "house_number": {
+          "type": "number"
+        },
+        "house_number_suffix": {
+          "description": "Any letter that may be found following a house number",
+          "type": "string"
+        },
+        "house_name": {
+          "type": "string"
+        },
         "street_name": {
+          "description": "The name of the street such as baker, mill, barton",
           "type": "string"
         },
         "street_type": {
+          "description": "The name of the type of street, such as road, avenue, lane",
           "type": "string"
         },
         "street_direction": {
           "description": "The direction of the street, necessary for some addresses",
+          "type": "string"
+        },
+        "address_type": {
+          "description": "The type of address such as Building, Office, PO Box, Apartment ",
+          "type": "string",
+          "default": "House"
+        },
+        "locality": {
+          "description": "The local area of this address, such as village or area of city",
           "type": "string"
         },
         "city": {
@@ -42,21 +69,16 @@
           "type": "string"
         },
         "governing_district": {
-          "description": "The county address is in",
-          "type": "string"
-        },
-        "country": {
-          "description": "The country this address is in",
+          "description": "The governing district, such as county, state or province this address is in",
           "type": "string"
         },
         "post_code": {
           "description": "The postcode for this address",
           "type": "string"
         },
-        "address_type": {
-          "description": "The type of address ",
-          "type": "string",
-          "default": "House"
+        "country": {
+          "description": "The country this address is in",
+          "type": "string"
         }
       },
       "required": [
@@ -64,8 +86,10 @@
         "street_type",
         "city",
         "governing_district",
-        "post_code"
-      ]
+        "post_code",
+        "country"
+      ],
+      "additionalProperties":false
     },
     "person": {
       "type": "object",
@@ -115,14 +139,18 @@
       "required": [
         "person_id",
         "first_name"
-      ]
+      ],
+      "additionalProperties":false
     }
   },
-  "type": "array",
+  "type": "object",
   "properties": {
-    "items": {
-      "$ref": "#/definitions/person"
-    },
+      "root" :{
+        "type" :"array",
+        "items" : { "$ref": "#/definitions/person" },
+        "minItems" : 1
+        }},
+    "required" : ["root"],
     "uniqueItems": true
-  }
+
 }

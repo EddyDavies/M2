@@ -30,7 +30,7 @@ def validate_address(address_file_path):
 
      try:
           validate(instance=jsonData, schema=jsonSchema)
-     except jsonschema.exceptions.ValidationError as err:
+     except:
           # print("Given JSON data is InValid")
           return "invalid"
      else:
@@ -38,19 +38,48 @@ def validate_address(address_file_path):
           # print("Given JSON data is Valid")
 
      address_list = []
-     for person in jsonData:
-          counted = False
-          for address in address_list:
-               if person["address"] is address["address"]:
-                    address["count"] += 1
-                    counted = True
-               if address["count"] >= 3:
-                    return "yes"
-          if not counted:
-               address_list.append({
-                    "address" : person["address"],
-                    "count" : 1
-               })
+     for person in jsonData["root"]:
+          try:
+               num_of_addresses = len(person["address"])
+          except:
+               skip = True
+               pass
+          else:
+               for i in range(num_of_addresses):
+                    counted = False
+                    # print()
+                    # print("Address List    ", address_list)
+                    # print("Person     ",person["address"][i])
+                    
+                    for address in address_list:
+                         # match = True
+                         # print("Address    ", address["address"])
+                         keys = list(address["address"].keys())
+                         for key in keys:     
+                              try:
+                                   x = person["address"][i][key]
+                                   y = address["address"][key]
+                              except:
+                                   break
+                              else:
+                                   # print(x)
+                                   # print(y)
+                                   if x != y:
+                                        # match = False
+                                        # print("break")
+                                        break
+                         # if match:     
+                         # print("Count incremented")
+                         address["count"] += 1
+                         counted = True
+                         if address["count"] >= 3:
+                              return "yes"
+                    if not counted:
+                         # print("address added")
+                         address_list.append({
+                              "address" : person["address"][i],
+                              "count" : 1
+                         })
      
      return "no"
 
@@ -59,9 +88,11 @@ if __name__=='__main__':
 #     print(validate_address(address_file_path))
 
      files = [
-    "/Users/edwarddavies/Documents/UoM/_Modelling Data/M2/ValidNoLarge.json",
-    "/Users/edwarddavies/Documents/UoM/_Modelling Data/M2/ValidSomeLarge.json",
-    "/Users/edwarddavies/Documents/UoM/_Modelling Data/M2/Invalid3.json"
+    "/Users/edwarddavies/Documents/UoM/_Modelling Data/M2/ValidNoLarge.json"
+    ,
+   "/Users/edwarddavies/Documents/UoM/_Modelling Data/M2/ValidSomeLarge.json"
+    ,
+   "/Users/edwarddavies/Documents/UoM/_Modelling Data/M2/Invalid3.json"
      ]
 
      for file in files:
