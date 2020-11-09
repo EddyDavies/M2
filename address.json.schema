@@ -3,52 +3,11 @@
   "title": "Address Book",
   "description": "A schema for a person's name, address, phone number and email",
   "definitions": {
-    "specific_address" : {
-      "oneOf": [
-        {
-          "allOf" : [
-            {"$ref": "#/definitions/general_address"},
-            { 
-              "type": "object",
-              "properties": {
-              "house_number": {
-                "type": "number"
-            }}}
-          ]
-        },
-        {
-          "allOf" : [
-            {"$ref": "#/definitions/general_address"},
-            { 
-              "type": "object",
-              "properties": {
-                "house_number": {
-                  "type": "number"
-                },
-                "house_number_suffix": {
-                  "description": "Any letter that may be found following a house number",
-                  "type": "string"
-                  }}}
-                ]
-              },
-              {
-                "allOf" : [
-                  {"$ref": "#/definitions/general_address"},
-                  { 
-                    "type": "object",
-                    "properties": {
-                  "house_name": {
-                    "type": "string"
-            }}}
-          ]
-        }
-      ]
-    },
-
-    "general_address": {
+    "address" : {
       "type": "object",
-      "properties": {
+        "properties": {
         "house_number": {
+          "description": "The house number",
           "type": "number"
         },
         "house_number_suffix": {
@@ -56,6 +15,7 @@
           "type": "string"
         },
         "house_name": {
+          "description": "The house name that might be instead of or alongside the number",
           "type": "string"
         },
         "street_name": {
@@ -72,6 +32,11 @@
         },
         "address_type": {
           "description": "The type of address such as Building, Office, PO Box, Apartment ",
+          "type": "string",
+          "default": "House"
+        },
+        "address_type_identifier": {
+          "description": "The Building number, PO Box number, Apartment floor etc",
           "type": "string",
           "default": "House"
         },
@@ -96,13 +61,35 @@
           "type": "string"
         }
       },
-      "required": [
-        "street_name",
-        "street_type",
-        "city",
-        "governing_district",
-        "post_code",
-        "country"
+      "oneOf": [ {
+        "required": [
+          "house_number",
+          "street_name",
+          "street_type",
+          "city",
+          "governing_district",
+          "post_code",
+          "country"
+        ]},{
+        "required": [
+          "house_name",
+          "street_name",
+          "street_type",
+          "city",
+          "governing_district",
+          "post_code",
+          "country"
+        ]}, {
+        "required": [
+          "house_number",
+          "house_number_suffix",
+          "street_name",
+          "street_type",
+          "city",
+          "governing_district",
+          "post_code",
+          "country"
+        ]}
       ],
       "additionalProperties":false
     },
@@ -129,7 +116,7 @@
           "description": "The individuals last name",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/specific_address"
+            "$ref": "#/definitions/address"
           },
           "uniqueItems": true
         },

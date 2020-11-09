@@ -1,58 +1,56 @@
 {"root" : [
-{
-    "person_id" : 7727802,
-    "first_name" : "Aleshia",
-    "address" : [{
-        "house_number": 1,
-        "house_number_suffix": "B",
-
-        "street_name" : "Argyle",
-        "street_type": "Street",
-        "street_direction": "",
-
-        "city" : "Hyde Werneth Ward",
-        "governing_district" : "Greater Manchester",
-        "post_code" : "SK14 5AR",
-
-        "country": "United Kingdom",
-        "address_type": "House"
-    }],
-    "phone" : [
-        "01835-703597",
-        "01944-369967"
-    ],
-    "email" : [
-        "atomkiewicz@hotmail.com",
-        "kiewiczForLife@gmail.com"
+    {
+        "person_id" : 7727802,
+        "first_name" : "Aleshia",
+        "address" : [{
+            "house_number": 1,
+    
+            "street_name" : "Argyle",
+            "street_type": "Street",
+            "street_direction": "",
+    
+            "city" : "Hyde Werneth Ward",
+            "governing_district" : "Greater Manchester",
+            "post_code" : "SK14 5AR",
+    
+            "country": "United Kingdom"
+        }],
+        "phone" : [
+            "01835-703597",
+            "01944-369967"
+        ],
+        "email" : [
+            "atomkiewicz@hotmail.com",
+            "kiewiczForLife@gmail.com"
+        ]
+    },
+    {
+        "person_id" : 77274842,
+        "first_name" : "Fred",
+        "last_name" : "Flinstone",
+        "address" : [{
+            "house_name": "Moor House",
+    
+            "street_name" : "Round",
+            "street_type": "Street",
+    
+            "city": "Hyde Werneth Ward",
+            "governing_district" : "Greater Manchester",
+            "post_code" : "SK14 5AR",
+    
+            "country": "United Kingdom",
+            "address_type": "House"
+        }],
+        "phone" : [
+            "+4 3456 45324",
+            "01944-369967"
+        ],
+        "email" : [
+            "Fred@hotmail.com",
+            "FDog@flinstone.com",
+            "FSharp@icloud.com"
+        ]
+    }
+    
     ]
-},
-{
-    "person_id" : 77274842,
-    "first_name" : "Fred",
-    "last_name" : "Flinstone",
-    "address" : [{
-        "house_name": "Moor House",
-
-        "street_name" : "Round",
-        "street_type": "Street",
-
-        "city" : "Hyde Werneth Ward",
-        "governing_district" : "Greater Manchester",
-        "post_code" : "SK14 5AR",
-
-        "country": "United Kingdom",
-        "address_type": "House"
-    }],
-    "phone" : [
-        "+4 3456 45324",
-        "01944-369967"
-    ],
-    "email" : [
-        "Fred@hotmail.com",
-        "FDog@flinstone.com",
-        "FSharp@icloud.com"
-    ]
-}
-
-]
-}
+    }
