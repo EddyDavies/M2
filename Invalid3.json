@@ -3,7 +3,7 @@
         "person_id" : 7727802,
         "last_name" : "Smith",
         "address" : [{
-            "house_number": "1B",
+            "house_number": -1,
             "house_name": "Mill House",
     
             "street_name" : "Argyle",
@@ -15,7 +15,7 @@
             "count()ry": "United Kingdom"
         }],
         "phone" : [
-            "07849266425"
+            "dds07849266425"
         ],
         "email" : [
             "wild.at.hotmail.com"

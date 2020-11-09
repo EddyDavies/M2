@@ -7,7 +7,7 @@
     
             "street_name" : "Argyle",
             "street_type": "Street",
-            "street_direction": "",
+            "street_direction": "N",
     
             "city" : "Hyde Werneth Ward",
             "governing_district" : "Greater Manchester",
@@ -16,8 +16,8 @@
             "country": "United Kingdom"
         }],
         "phone" : [
-            "01835-703597",
-            "01944-369967"
+            "01835 703597",
+            "+44 0944 369967"
         ],
         "email" : [
             "atomkiewicz@hotmail.com",
