@@ -3,34 +3,49 @@
   "title": "Address Book",
   "description": "A schema for a person's name, address, phone number and email",
   "definitions": {
-    "address": {
+    "specific_address" : {
       "oneOf": [
         {
-          "properties": {
-            "house_number": {
-              "type": "number"
-            }
-          }
+          "allOf" : [
+            {"$ref": "#/definitions/general_address"},
+            { 
+              "type": "object",
+              "properties": {
+              "house_number": {
+                "type": "number"
+            }}}
+          ]
         },
         {
-          "properties": {
-            "house_number": {
-              "type": "number"
-            },
-            "house_number_suffix": {
-              "description": "Any letter that may be found following a house number",
-              "type": "string"
-            }
-          }
-        },
-        {
-          "properties": {
-            "house_name": {
-              "type": "string"
-            }
-          }
+          "allOf" : [
+            {"$ref": "#/definitions/general_address"},
+            { 
+              "type": "object",
+              "properties": {
+                "house_number": {
+                  "type": "number"
+                },
+                "house_number_suffix": {
+                  "description": "Any letter that may be found following a house number",
+                  "type": "string"
+                  }}}
+                ]
+              },
+              {
+                "allOf" : [
+                  {"$ref": "#/definitions/general_address"},
+                  { 
+                    "type": "object",
+                    "properties": {
+                  "house_name": {
+                    "type": "string"
+            }}}
+          ]
         }
-      ],
+      ]
+    },
+
+    "general_address": {
       "type": "object",
       "properties": {
         "house_number": {
@@ -114,7 +129,7 @@
           "description": "The individuals last name",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/address"
+            "$ref": "#/definitions/specific_address"
           },
           "uniqueItems": true
         },
