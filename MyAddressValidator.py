@@ -84,16 +84,5 @@ def validate_address(address_file_path):
      return "no"
 
 if __name__=='__main__':
-#     address_file_path = sys.argv[1]
-#     print(validate_address(address_file_path))
-
-     files = [
-    "/Users/edwarddavies/Documents/UoM/_Modelling Data/M2/ValidNoLarge.json"
-    ,
-   "/Users/edwarddavies/Documents/UoM/_Modelling Data/M2/ValidSomeLarge.json"
-    ,
-   "/Users/edwarddavies/Documents/UoM/_Modelling Data/M2/Invalid3.json"
-     ]
-
-     for file in files:
-          print(validate_address(file))
+    address_file_path = sys.argv[1]
+    print(validate_address(address_file_path))
